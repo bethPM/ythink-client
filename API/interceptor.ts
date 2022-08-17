@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from "axios";
 const instance: AxiosInstance = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
-      ? "https://server-searchmyname.herokuapp.com/api"
+      ? "https://ythink-server.herokuapp.com/api"
       : "http://localhost:5000/api",
 });
 
