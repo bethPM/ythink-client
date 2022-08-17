@@ -4,10 +4,10 @@ import Send from "./interceptor";
 import { ICommon } from "./interface/common.interface";
 import { IPost } from "./interface/post.interface";
 
-const readPosts = (): Promise<AxiosResponse<ICommon<IPost[]>>> => {
+const readPosts = (_id: string): Promise<AxiosResponse<ICommon<IPost[]>>> => {
   return Send({
     method: Methods.GET,
-    url: "/post/readPosts",
+    url: `/post/readPosts?_id=${_id}`,
   });
 };
 

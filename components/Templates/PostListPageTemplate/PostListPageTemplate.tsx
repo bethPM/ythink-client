@@ -21,19 +21,24 @@ import { IPost } from "../../../API/interface/post.interface";
 import { ImShare } from "react-icons/im";
 import ImageTag from "../../Atoms/Image/Image";
 import useSnackBar from "../../../hooks/useSnackBar";
+import { selectInfo } from "../../../store/user/infoSlice/infoSlice";
 
 const PostListPageTemplate = () => {
+  const info = useAppSelector(selectInfo);
+
   const [posts, setPosts] = useState<IPost[]>([]);
 
   const isOpen = useAppSelector(selectIsOpen);
 
   useEffect(() => {
     (async () => {
-      const res = await readPosts();
+      if (info._id) {
+        const res = await readPosts(info._id);
 
-      setPosts(res.data.data);
+        setPosts(res.data.data);
+      }
     })();
-  }, []);
+  }, [info._id]);
 
   const dispatch = useAppDispatch();
   const { isBookMark } = useAppSelector(selectIsOpen);
