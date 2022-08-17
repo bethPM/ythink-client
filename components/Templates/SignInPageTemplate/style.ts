@@ -89,7 +89,7 @@ const KakaoSignInBtn = styled.a`
   width: 214px;
   height: 45px;
   position: absolute;
-  left: 114px;
+  left: 120px;
   top: 590px;
 
   border-radius: 10px;
